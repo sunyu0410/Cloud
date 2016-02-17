@@ -27,7 +27,7 @@ pip install openslide-python==1.0.0
 :: If every component is right, Python is able to read the SVS files.
 ```
 
-<p>Here's a script to test the installation. Download the sample SVS file from [here](http://openslide.cs.cmu.edu/download/openslide-testdata/Aperio/CMU-1-Small-Region.svs).</p>
+<p>Here's a script to test the installation. Download the sample SVS file from <a href="http://openslide.cs.cmu.edu/download/openslide-testdata/Aperio/CMU-1-Small-Region.svs">here</a>.</p>
 
 ```python
 import openslide as op
