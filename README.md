@@ -43,7 +43,7 @@ r = slide.read_region((0,0), 0, (100,100))
 print r
 ```
 
-<h2>R</h2>
+<h2>Install and run R in the cloud</h2>
 
 ```bat
 :: To install R
@@ -69,7 +69,7 @@ scp -i mykeypair.pem mrhist0* ubuntu@130.56.254.253:~/
 scp -i mykeypair.pen ubuntu@130.56.254.253:~/myfile <local_path>
 ```
 
-<h2>Download from a url</h2>
+<h2>Download from a URL</h2>
 
 ```bat
 curl -o myfile.txt <url>
