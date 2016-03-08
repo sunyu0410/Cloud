@@ -44,3 +44,58 @@ f = f/sum(f)
 # Apply the filter
 img_filtered = filter2(img, f)
 ```
+
+<h1>Haralick's Textural Featrues</h1>
+<p>To calculate the Haralick's textural features of an image <code>img</code> in EBImage, we need to specify another mask to indicate which pixels are considered as a block. The mask should have the same size as <code>img</code>. An example of a legal mask is as follows.</p>
+```r
+0 0 0 0 1 1 2 2 3 3 4 4
+0 0 0 0 1 1 2 2 3 3 4 4
+```
+<p>In this case, 1) voxels with non-zeros will be considered for feature calculation and 2) the voxels with the same number will be regarded as a block. Haralick's features will be calculated on each block. Thus in this case, 4 sets of Haralick's features will be calculated.</p>
+<p>Following the previous example, to calculate the Haralick's features for each cell, we can first create an mask which delineate the cells, then label the mask with a sequential integers and calculate the Haralick's features.</p>
+```r
+# Create the mask by thresholding the img
+# thresh(x, w=5, h=5, offset=0.01)
+#   x:        An Image object or an array.
+#   w, h:     Width and height of the moving rectangular window.
+#   offset:   Thresholding offset from the averaged value.
+mask = thresh(img, 10, 10, 0.05)
+# Slightly manipulate the mask mophologically
+mask = opening(mask, makeBrush(5, shape='disc'))
+# Label the mask (this is an important step)
+mask = bwlabel(mask)
+# Calculate the Haralick's features
+hf = computeFeatures.haralick(x,y)
+
+# Calculating and visualising correlations
+library(gplots)         # for heatmap.2()
+library(RColorBrewer)   # for brewer.pal()
+
+# Calculating the correlation matrix
+correlationMatrix = cor(hf)
+
+# Plot the heatmap without dendrogram
+heatmap.2(correlationMatrix,
+          dendrogram="none", 
+          Rowv=FALSE, 
+          symm=TRUE,
+          main="Texture Features",
+          scale="none", 
+          col=brewer.pal(11,"RdBu"), 
+          margins=c(7,7), 
+          trace="none")
+          
+# Plot the heatmap with dendrogram
+heatmap.2(correlationMatrix,
+          key=FALSE,
+          main="Haralick Texture Features",
+          scale="none", 
+          col=brewer.pal(11,"RdBu"), 
+          margins=c(7,7), 
+          trace="none")
+```
+
+<h1>Reference</h1>
+<ol>
+  <li>Haralick's features: http://earlglynn.github.io/RNotes/package/EBImage/Features-Haralick.html</li>
+</ol>
