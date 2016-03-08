@@ -65,11 +65,11 @@ mask = opening(mask, makeBrush(5, shape='disc'))
 # Label the mask (this is an important step)
 mask = bwlabel(mask)
 # Calculate the Haralick's features
-hf = computeFeatures.haralick(x,y)
+hf = computeFeatures.haralick(mask, img)
 
 # Calculating and visualising correlations
 library(gplots)         # for heatmap.2()
-library(RColorBrewer)   # for brewer.pal()
+library(RColorBrewer)   # for brewer.pal() to create color palettes
 
 # Calculating the correlation matrix
 correlationMatrix = cor(hf)
