@@ -129,4 +129,5 @@ h.var.s1
 <h1>Reference</h1>
 <ol>
   <li>Haralick's features: http://earlglynn.github.io/RNotes/package/EBImage/Features-Haralick.html</li>
+  <li>Compute features: http://rpackages.ianhowson.com/bioc/EBImage/man/computeFeatures.html</li>
 </ol>
