@@ -94,7 +94,38 @@ heatmap.2(correlationMatrix,
           margins=c(7,7), 
           trace="none")
 ```
+<p>For some reason, a subtle change in the pixels values will cause a dramatic change in some Haralick featrues. Codes have been checked but no error has been found so far.</p>
+```r
+> calTileFeat(normalize(y[109:119, 42:52], ft=c(0,35)))
+h.asm.s1 h.con.s1  h.cor.s1 h.var.s1 h.idm.s1 h.sav.s1 h.sva.s1   h.sen.s1  h.ent.s1
+[1,] 0.9187847 36.18889 0.1050504  21.2184 0.959764 62.64444 3957.573 0.09136094 0.1039039
+h.dva.s1   h.den.s1   h.f12.s1   h.f13.s1 h.asm.s2 h.con.s2    h.cor.s2 h.var.s2 h.idm.s2
+[1,] 17.50278 0.05808752 0.03846034 0.06376709    0.815       90 -0.05263158    43.75 0.900111
+h.sav.s2 h.sva.s2  h.sen.s2  h.ent.s2 h.dva.s2  h.den.s2   h.f12.s2   h.f13.s2
+[1,]       61 3784.796 0.1411817 0.1712847       90 0.1411817 0.01326243 0.04779335
 
+> calTileFeat(normalize(y[109:119, 42:52], ft=c(0,34)))
+h.asm.s1 h.con.s1  h.cor.s1 h.var.s1  h.idm.s1 h.sav.s1 h.sva.s1   h.sen.s1   h.ent.s1
+[1,] 0.9191667 37.37222 0.1051136 21.88099 0.9611515 62.62222 3957.725 0.07965422 0.09136094
+h.dva.s1   h.den.s1   h.f12.s1   h.f13.s1 h.asm.s2 h.con.s2    h.cor.s2 h.var.s2 h.idm.s2
+[1,]        0 0.01655649 0.02595172 0.04898224    0.815     96.1 -0.05263158  46.6475 0.900104
+h.sav.s2 h.sva.s2  h.sen.s2  h.ent.s2 h.dva.s2   h.den.s2   h.f12.s2   h.f13.s2
+[1,]     60.9 3778.124 0.1411817 0.1712847        0 0.04118174 0.01326243 0.04779335
+
+> calTileFeat(normalize(y[90:100, 42:52], ft=c(0,100)))[,'h.var.s1']
+h.var.s1 
+2.332868 
+> calTileFeat(normalize(y[89:99, 42:52], ft=c(0,100)))[,'h.var.s1']
+h.var.s1 
+8.941597 
+> calTileFeat(normalize(y[88:98, 42:52], ft=c(0,100)))[,'h.var.s1']
+h.var.s1 
+11.55914 
+> calTileFeat(normalize(y[87:97, 42:52], ft=c(0,100)))[,'h.var.s1']
+h.var.s1 
+11.55914 
+
+```
 <h1>Reference</h1>
 <ol>
   <li>Haralick's features: http://earlglynn.github.io/RNotes/package/EBImage/Features-Haralick.html</li>
