@@ -10,6 +10,7 @@ apt-get install python-dev python-setuptools
 ```
 
 <h2>OpenSlide</h2>
+
 ```bat
 :: Install OpenSlide
 apt-get install openslide-tools
