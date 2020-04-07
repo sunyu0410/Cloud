@@ -1,4 +1,5 @@
 <H1>Installation in R</h1>
+
 ```r
 source("http://bioconductor.org/biocLite.R")
 biocLite()
@@ -6,6 +7,7 @@ biocLite('EBImage')
 ```
 
 <h1>Read and manipulate images</h1>
+
 ```r
 # Read a tiff image included in the EBImage package
 # [,,1] means the first layer of the tiff, not the color channel
