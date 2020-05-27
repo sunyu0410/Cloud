@@ -1,4 +1,10 @@
-<H1>Installation in R</h1>
+# Radiomics using EBImage in R
+
+A note for quick reference
+
+Yu Sun
+
+## Installation in R
 
 ```r
 source("http://bioconductor.org/biocLite.R")
@@ -6,7 +12,7 @@ biocLite()
 biocLite('EBImage')
 ```
 
-<h1>Read and manipulate images</h1>
+## Read and manipulate images
 
 ```r
 # Read a tiff image included in the EBImage package
@@ -47,7 +53,7 @@ f = f/sum(f)
 img_filtered = filter2(img, f)
 ```
 
-<h1>Haralick's Textural Featrues</h1>
+## Haralick's Textural Featrues
 <p>To calculate the Haralick's textural features of an image <code>img</code> in EBImage, we need to specify another mask to indicate which pixels are considered as a block. The mask should have the same size as <code>img</code>. An example of a legal mask is as follows.</p>
 
 ```r
@@ -134,7 +140,7 @@ h.var.s1
 
 ```
 
-<h1>Reference</h1>
+## Reference
 <ol>
   <li>Haralick's features: http://earlglynn.github.io/RNotes/package/EBImage/Features-Haralick.html</li>
   <li>Compute features: http://rpackages.ianhowson.com/bioc/EBImage/man/computeFeatures.html</li>
